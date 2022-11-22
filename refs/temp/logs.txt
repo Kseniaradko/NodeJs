@@ -1,0 +1,3 @@
+first_log
+
+    LOG_42 
