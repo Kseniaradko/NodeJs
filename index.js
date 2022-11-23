@@ -1,7 +1,7 @@
 const express = require('express')
 const chalk = require('chalk')
 const path = require('path')
-const { addNote, getNotes, removeNote, editNote} = require('./notes.controller')
+const {addNote, getNotes, removeNote, editNote} = require('./notes.controller')
 
 const port = 3000
 const app = express()
@@ -15,7 +15,7 @@ app.use(express.urlencoded({
     extended: true
 }))
 
-app.get('/', async (req,res) => {
+app.get('/', async (req, res) => {
     res.render('index', {
         title: 'Express App',
         notes: await getNotes(),
@@ -50,6 +50,6 @@ app.put('/:id', async (req, res) => {
     })
 })
 
-app.listen(port,() =>{
+app.listen(port, () => {
     console.log(chalk.green(`Server has been started on port ${port}`))
 })

@@ -30,12 +30,20 @@
         <% if (notes.length) {%>
         <div class="card">
             <ul class="list-group">
-                <% for (let i = 0; i < notes.length; i++) {%>
-                <li class="list-group-item d-flex justify-content-between align-items-center">
+                <% for (let i = 0; i < notes.length; i++) {
+                %>
+                <li id="li-<%=notes[i].id%>" class="list-group-item d-flex justify-content-between align-items-center">
                     <span id="title-<%= notes[i].id %>"><%= notes[i].title %></span>
                     <div>
-                        <button class="btn btn-primary" data-type="edit" data-id="<%= notes[i].id %>">Редактировать</button>
+                        <button class="btn btn-primary" data-type="edit" data-id="<%= notes[i].id %>">Обновить</button>
                         <button class="btn btn-danger" data-type="remove" data-id="<%= notes[i].id %>">&times;</button>
+                    </div>
+                </li>
+                <li id="li-edit-<%=notes[i].id%>" class="list-group-item d-none justify-content-between align-items-center">
+                    <input type="text" value="<%= notes[i].title%>" name="titleEdit" id="input-<%=notes[i].id%>"required>
+                    <div>
+                        <button class="btn btn-success" data-type="save" data-id="<%= notes[i].id %>">Сохранить</button>
+                        <button class="btn btn-danger" data-type="cancel" data-id="<%= notes[i].id %>">Отменить</button>
                     </div>
                 </li>
                 <% } %>
